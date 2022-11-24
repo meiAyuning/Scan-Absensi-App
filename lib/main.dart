@@ -2,6 +2,7 @@ import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:flutter_inappwebview/flutter_inappwebview.dart';
 import 'package:permission_handler/permission_handler.dart';
+import 'package:flutter/cupertino.dart';
 
 Future main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -57,7 +58,7 @@ class _SplashScreenPageState extends State<SplashScreenPage> {
       backgroundColor: Color.fromARGB(255, 25, 167, 13),
       body: Center(
         child: Image.asset(
-          "images/logo imud.png",
+          "images/imud.png",
           width: 400.0,
           height: 250.0,
         ),
@@ -77,8 +78,13 @@ class _InAppWebViewPageState extends State<InAppWebViewPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        appBar: AppBar(title: Text("Presensi Siswa"),centerTitle: true,),
+        appBar: AppBar(title: Text("Presensi Siswa"),centerTitle: true),
         body: Container(
+        // RefreshIndicator(
+        // onRefresh: () async {
+        //   await Future.delayed(Duration(seconds: 2));
+        //   Container();
+        // },
             child: Column(children: <Widget>[
           Expanded(
             child: Container(
