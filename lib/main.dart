@@ -23,7 +23,8 @@ class _MyAppState extends State<MyApp> {
   Widget build(BuildContext context) {
     return MaterialApp(
       home: SplashScreenPage(),
-      debugShowCheckedModeBanner: false,);
+      debugShowCheckedModeBanner: false,
+    );
   }
 }
 
@@ -78,37 +79,44 @@ class _InAppWebViewPageState extends State<InAppWebViewPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        appBar: AppBar(title: Text("Presensi Siswa"),centerTitle: true),
-        body: Container(
-        // RefreshIndicator(
-        // onRefresh: () async {
-        //   await Future.delayed(Duration(seconds: 2));
-        //   Container();
-        // },
+        appBar: AppBar(title: Text("Presensi Siswa"), centerTitle: true),
+        body: RefreshIndicator(
+            onRefresh: () {
+              return Future.delayed(
+                Duration(seconds: 1),
+                () {},
+              );
+            },
+            // Container(
+            // RefreshIndicator(
+            // onRefresh: () async {
+            //   await Future.delayed(Duration(seconds: 2));
+            //   Container();
+            // },
             child: Column(children: <Widget>[
-          Expanded(
-            child: Container(
-              child: InAppWebView(
-                  initialUrlRequest: URLRequest(
-                      url: Uri.parse(
-                          "https://presensipkl.smkniu.sch.id/mGvwLJfkc4zOJ7As9eEvA==")),
-                  initialOptions: InAppWebViewGroupOptions(
-                    crossPlatform: InAppWebViewOptions(
-                      mediaPlaybackRequiresUserGesture: false,
-                    ),
-                  ),
-                  onWebViewCreated: (InAppWebViewController controller) {
-                    _webViewController = controller;
-                  },
-                  androidOnPermissionRequest:
-                      (InAppWebViewController controller, String origin,
-                          List<String> resources) async {
-                    return PermissionRequestResponse(
-                        resources: resources,
-                        action: PermissionRequestResponseAction.GRANT);
-                  }),
-            ),
-          ),
-        ])));
+              Expanded(
+                child: Container(
+                  child: InAppWebView(
+                      initialUrlRequest: URLRequest(
+                          url: Uri.parse(
+                              "https://presensipkl.smkniu.sch.id/mGvwLJfkc4zOJ7As9eEvA==")),
+                      initialOptions: InAppWebViewGroupOptions(
+                        crossPlatform: InAppWebViewOptions(
+                          mediaPlaybackRequiresUserGesture: false,
+                        ),
+                      ),
+                      onWebViewCreated: (InAppWebViewController controller) {
+                        _webViewController = controller;
+                      },
+                      androidOnPermissionRequest:
+                          (InAppWebViewController controller, String origin,
+                              List<String> resources) async {
+                        return PermissionRequestResponse(
+                            resources: resources,
+                            action: PermissionRequestResponseAction.GRANT);
+                      }),
+                ),
+              ),
+            ])));
   }
 }
