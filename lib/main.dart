@@ -69,7 +69,7 @@ class _SplashScreenPageState extends State<SplashScreenPage> {
   }
 }
 
-//Halaman pilihan scan dengan alat atau dengan qrcode
+//Halaman pilihan scan dengan alat atau dengan kamera
 class ChoicePage extends StatefulWidget {
   ChoicePage({Key? key}) : super(key: key);
 
@@ -276,7 +276,7 @@ class _ToolPageState extends State<ToolPage> {
   }
 }
 
-//Halaman scan dengan qrcode
+//Halaman scan dengan kamera
 class InAppWebViewPage extends StatefulWidget {
   @override
   _InAppWebViewPageState createState() => new _InAppWebViewPageState();
@@ -298,11 +298,7 @@ class _InAppWebViewPageState extends State<InAppWebViewPage> {
                 icon: Icon(Icons.refresh))
           ],
         ),
-        body: RefreshIndicator(
-            onRefresh: _refresh,
-            child: Column(children: <Widget>[
-              Expanded(
-                child: Container(
+        body: Container(
                   child: InAppWebView(
                       initialUrlRequest: URLRequest(
                           url: Uri.parse(
@@ -323,11 +319,7 @@ class _InAppWebViewPageState extends State<InAppWebViewPage> {
                             action: PermissionRequestResponseAction.GRANT);
                       }),
                 ),
-              ),
-            ])));
+              );
   }
 }
 
-Future<void> _refresh() {
-  return Future.delayed(const Duration(seconds: 2));
-}
