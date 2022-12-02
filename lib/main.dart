@@ -110,12 +110,13 @@ class _ChoicePageState extends State<ChoicePage> {
                                   height: 200,
                                   width: 400,
                                   margin: EdgeInsets.all(10),
+                                  padding: EdgeInsets.only(right: 25),
                                   decoration: BoxDecoration(
                                       borderRadius: BorderRadius.circular(50)),
                                 ),
                               ),
                               Padding(
-                                padding: EdgeInsets.only(left: 25),
+                                padding: EdgeInsets.only(top: 10),
                                 child: Column(
                                   children: [
                                     Container(
@@ -152,7 +153,7 @@ class _ChoicePageState extends State<ChoicePage> {
                             ],
                           ),
                           Padding(
-                              padding: EdgeInsets.only(left: 25, top: 10),
+                              padding: EdgeInsets.only(top: 10),
                               child: Column(
                                 children: [
                                   Column(
@@ -289,37 +290,35 @@ class _InAppWebViewPageState extends State<InAppWebViewPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        appBar: AppBar(
-          title: Text("Presensi Siswa"),
-          centerTitle: true,
-          actions: [
-            IconButton(
-                onPressed: () => _webViewController.reload(),
-                icon: Icon(Icons.refresh))
-          ],
-        ),
-        body: Container(
-                  child: InAppWebView(
-                      initialUrlRequest: URLRequest(
-                          url: Uri.parse(
-                              "https://presensipkl.smkniu.sch.id/mGvwLJfkc4zOJ7As9eEvA==")),
-                      initialOptions: InAppWebViewGroupOptions(
-                        crossPlatform: InAppWebViewOptions(
-                          mediaPlaybackRequiresUserGesture: false,
-                        ),
-                      ),
-                      onWebViewCreated: (InAppWebViewController controller) {
-                        _webViewController = controller;
-                      },
-                      androidOnPermissionRequest:
-                          (InAppWebViewController controller, String origin,
-                              List<String> resources) async {
-                        return PermissionRequestResponse(
-                            resources: resources,
-                            action: PermissionRequestResponseAction.GRANT);
-                      }),
-                ),
-              );
+      appBar: AppBar(
+        title: Text("Presensi Siswa"),
+        centerTitle: true,
+        actions: [
+          IconButton(
+              onPressed: () => _webViewController.reload(),
+              icon: Icon(Icons.refresh))
+        ],
+      ),
+      body: Container(
+        child: InAppWebView(
+            initialUrlRequest: URLRequest(
+                url: Uri.parse(
+                    "https://presensipkl.smkniu.sch.id/mGvwLJfkc4zOJ7As9eEvA==")),
+            initialOptions: InAppWebViewGroupOptions(
+              crossPlatform: InAppWebViewOptions(
+                mediaPlaybackRequiresUserGesture: false,
+              ),
+            ),
+            onWebViewCreated: (InAppWebViewController controller) {
+              _webViewController = controller;
+            },
+            androidOnPermissionRequest: (InAppWebViewController controller,
+                String origin, List<String> resources) async {
+              return PermissionRequestResponse(
+                  resources: resources,
+                  action: PermissionRequestResponseAction.GRANT);
+            }),
+      ),
+    );
   }
 }
-
