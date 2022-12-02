@@ -86,122 +86,145 @@ class _ChoicePageState extends State<ChoicePage> {
           title: Text("SMKN Ihya' Ulumudin"),
           centerTitle: true),
       body: Center(
-        child: Container(
-          child: Column(
-            children: [
-              Column(
-                children: [
-                  GestureDetector(
-                    onTap: () {
-                      Navigator.push(
-                        context,
-                        MaterialPageRoute(builder: (context) => ToolPage()),
-                      );
-                    },
-                    child: Container(
-                      child: Image.asset('images/alat.png'),
-                      height: 250,
-                      width: 400,
-                      margin: EdgeInsets.all(5),
-                      decoration: BoxDecoration(
-                          borderRadius: BorderRadius.circular(50)),
-                    ),
-                  ),
-                  Padding(
-                    padding: EdgeInsets.only(left: 5),
-                    child: Column(
-                      children: [
-                        Container(
-                          width: 200,
-                          height: 45,
-                          child: TextButton(
-                            style: TextButton.styleFrom(
-                              backgroundColor: Color.fromARGB(255, 7, 141, 25),
-                              shape: RoundedRectangleBorder(
-                                borderRadius: BorderRadius.circular(20),
-                              ),
-                            ),
-                            onPressed: () {
-                              Navigator.push(
-                                context,
-                                MaterialPageRoute(
-                                    builder: (context) => ToolPage()),
-                              );
-                            },
-                            child: Text(
-                              "Scan Dengan Alat",
-                              style: TextStyle(
-                                color: Color(0xffffffff),
-                              ),
-                            ),
-                          ),
-                        ),
-                      ],
-                    ),
-                  ),
-                ],
-              ),
-              Padding(
-                  padding: EdgeInsets.only(left: 30),
-                  child: Column(
-                    children: [
-                      Column(
+        child: SafeArea(
+          child: CustomScrollView(
+            slivers: [
+              SliverList(
+                delegate: SliverChildListDelegate(
+                  [
+                    Container(
+                      child: Column(
                         children: [
-                          GestureDetector(
-                            onTap: () {
-                              Navigator.push(
-                                context,
-                                MaterialPageRoute(
-                                    builder: (context) => InAppWebViewPage()),
-                              );
-                            },
-                            child: Container(
-                              child: Image.asset('images/qrcode.jpg'),
-                              height: 200,
-                              width: 180,
-                              margin: EdgeInsets.all(10),
-                              decoration: BoxDecoration(
-                                  borderRadius: BorderRadius.circular(40)),
-                            ),
+                          Column(
+                            children: [
+                              GestureDetector(
+                                onTap: () {
+                                  Navigator.push(
+                                    context,
+                                    MaterialPageRoute(
+                                        builder: (context) => ToolPage()),
+                                  );
+                                },
+                                child: Container(
+                                  child: Image.asset('images/alat.png'),
+                                  height: 200,
+                                  width: 400,
+                                  margin: EdgeInsets.all(10),
+                                  decoration: BoxDecoration(
+                                      borderRadius: BorderRadius.circular(50)),
+                                ),
+                              ),
+                              Padding(
+                                padding: EdgeInsets.only(left: 25),
+                                child: Column(
+                                  children: [
+                                    Container(
+                                      width: 200,
+                                      height: 45,
+                                      child: TextButton(
+                                        style: TextButton.styleFrom(
+                                          backgroundColor:
+                                              Color.fromARGB(255, 7, 141, 25),
+                                          shape: RoundedRectangleBorder(
+                                            borderRadius:
+                                                BorderRadius.circular(20),
+                                          ),
+                                        ),
+                                        onPressed: () {
+                                          Navigator.push(
+                                            context,
+                                            MaterialPageRoute(
+                                                builder: (context) =>
+                                                    ToolPage()),
+                                          );
+                                        },
+                                        child: Text(
+                                          "Scan Dengan Alat",
+                                          style: TextStyle(
+                                            color: Color(0xffffffff),
+                                          ),
+                                        ),
+                                      ),
+                                    ),
+                                  ],
+                                ),
+                              ),
+                            ],
                           ),
                           Padding(
-                            padding: EdgeInsets.only(left: 5),
-                            child: Column(
-                              children: [
-                                Container(
-                                  width: 200,
-                                  height: 45,
-                                  child: TextButton(
-                                    style: TextButton.styleFrom(
-                                      backgroundColor:
-                                          Color.fromARGB(255, 7, 141, 25),
-                                      shape: RoundedRectangleBorder(
-                                        borderRadius: BorderRadius.circular(20),
+                              padding: EdgeInsets.only(left: 25, top: 10),
+                              child: Column(
+                                children: [
+                                  Column(
+                                    children: [
+                                      GestureDetector(
+                                        onTap: () {
+                                          Navigator.push(
+                                            context,
+                                            MaterialPageRoute(
+                                                builder: (context) =>
+                                                    InAppWebViewPage()),
+                                          );
+                                        },
+                                        child: Container(
+                                          child:
+                                              Image.asset('images/qrcode.jpg'),
+                                          width: 300,
+                                          height: 200,
+                                          margin: EdgeInsets.all(10),
+                                          decoration: BoxDecoration(
+                                              borderRadius:
+                                                  BorderRadius.circular(40)),
+                                        ),
                                       ),
-                                    ),
-                                    onPressed: () {
-                                      Navigator.push(
-                                        context,
-                                        MaterialPageRoute(
-                                            builder: (context) =>
-                                                InAppWebViewPage()),
-                                      );
-                                    },
-                                    child: Text(
-                                      "Scan Dengan QR Code",
-                                      style: TextStyle(
-                                        color: Color(0xffffffff),
+                                      Padding(
+                                        padding: EdgeInsets.only(
+                                            left: 5, top: 10, bottom: 20),
+                                        child: Column(
+                                          children: [
+                                            Container(
+                                              width: 200,
+                                              height: 45,
+                                              child: TextButton(
+                                                style: TextButton.styleFrom(
+                                                  backgroundColor:
+                                                      Color.fromARGB(
+                                                          255, 7, 141, 25),
+                                                  shape: RoundedRectangleBorder(
+                                                    borderRadius:
+                                                        BorderRadius.circular(
+                                                            20),
+                                                  ),
+                                                ),
+                                                onPressed: () {
+                                                  Navigator.push(
+                                                    context,
+                                                    MaterialPageRoute(
+                                                        builder: (context) =>
+                                                            InAppWebViewPage()),
+                                                  );
+                                                },
+                                                child: Text(
+                                                  "Scan Dengan Kamera",
+                                                  style: TextStyle(
+                                                    color: Color(0xffffffff),
+                                                  ),
+                                                ),
+                                              ),
+                                            ),
+                                          ],
+                                        ),
                                       ),
-                                    ),
+                                    ],
                                   ),
-                                ),
-                              ],
-                            ),
-                          ),
+                                ],
+                              ))
                         ],
                       ),
-                    ],
-                  ))
+                    ),
+                  ],
+                ),
+              ),
             ],
           ),
         ),
@@ -219,10 +242,20 @@ class ToolPage extends StatefulWidget {
 }
 
 class _ToolPageState extends State<ToolPage> {
+  late InAppWebViewController _webViewController;
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        appBar: AppBar(title: Text("Presensi Siswa"), centerTitle: true),
+        appBar: AppBar(
+          title: Text("Presensi Siswa"),
+          centerTitle: true,
+          actions: [
+            IconButton(
+                onPressed: () => _webViewController.reload(),
+                icon: Icon(Icons.refresh))
+          ],
+        ),
         body: InAppWebView(
             initialUrlRequest: URLRequest(
                 url: Uri.parse("https://presensipkl.smkniu.sch.id/scan2/")),
@@ -231,9 +264,9 @@ class _ToolPageState extends State<ToolPage> {
                 mediaPlaybackRequiresUserGesture: false,
               ),
             ),
-            // onWebViewCreated: (InAppWebViewController controller) {
-            //   _webViewController = controller;
-            // },
+            onWebViewCreated: (InAppWebViewController controller) {
+              _webViewController = controller;
+            },
             androidOnPermissionRequest: (InAppWebViewController controller,
                 String origin, List<String> resources) async {
               return PermissionRequestResponse(
@@ -256,7 +289,15 @@ class _InAppWebViewPageState extends State<InAppWebViewPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        appBar: AppBar(title: Text("Presensi Siswa"), centerTitle: true),
+        appBar: AppBar(
+          title: Text("Presensi Siswa"),
+          centerTitle: true,
+          actions: [
+            IconButton(
+                onPressed: () => _webViewController.reload(),
+                icon: Icon(Icons.refresh))
+          ],
+        ),
         body: RefreshIndicator(
             onRefresh: _refresh,
             child: Column(children: <Widget>[
